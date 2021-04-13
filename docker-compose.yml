@@ -1,0 +1,20 @@
+version: "3.9"
+services:
+  app:
+    build: .
+    ports:
+      - 4000:4000
+    volumes:
+      - ./:/app
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DATABASE: hero_dev
+  postgres:
+    image: postgres:11-alpine
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DATABASE: hero_dev

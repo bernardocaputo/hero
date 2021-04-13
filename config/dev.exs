@@ -2,10 +2,10 @@ use Mix.Config
 
 # Configure your database
 config :hero, Hero.Repo,
-  username: "postgres",
-  password: "postgres",
-  database: "hero_dev",
-  hostname: "localhost",
+  username: System.get_env("POSTGRES_USER"),
+  password: System.get_env("POSTGRES_PASSWORD"),
+  database: System.get_env("POSTGRES_DATABASE"),
+  hostname: "postgres",
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
 
